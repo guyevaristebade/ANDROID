@@ -1,0 +1,20 @@
+Une calculatrice basique
+Un convertisseur de devises
+Une application de notes
+Une application de to-do list
+Un jeu de morpion (Tic-Tac-Toe)
+Une application de chronométrage
+Une application de rappel de médicaments
+Un lecteur de flux RSS
+Une application de météo
+Un générateur de mots de passe
+Une application de lecture de QR code
+Un gestionnaire de contacts
+Un suivi des dépenses
+Un chronomètre de sport
+Une application de traduction
+Une application de reconnaissance de voix
+Une application de reconnaissance faciale
+Un lecteur de musique
+Un gestionnaire de mots de passe
+Une application de scanner de code barres.

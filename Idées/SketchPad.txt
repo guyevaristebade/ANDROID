@@ -1,0 +1,19 @@
+Nom de l'application : "SketchPad"
+
+Description de l'application : SketchPad est une application de dessin numérique qui permet aux utilisateurs de créer et de gérer leurs dessins. L'application offre une interface utilisateur intuitive avec des fonctionnalités de dessin, d'évènements, d'interface tactile, de cycle de vie, de préférences et de gestion de base de données.
+
+Fonctionnalités de l'application :
+
+    Mise en page : L'application offre une mise en page adaptée à la création et à la gestion des dessins. Vous pouvez utiliser des éléments d'interface utilisateur, tels que des boutons, des boîtes de dialogue et des barres d'outils pour organiser les fonctionnalités de l'application de manière conviviale.
+
+    Dessin : L'application permet aux utilisateurs de créer des dessins en utilisant divers outils de dessin, tels que des pinceaux, des couleurs, des formes géométriques, etc. Vous pouvez implémenter des fonctionnalités de dessin telles que le traçage du doigt sur l'écran pour dessiner, la sélection de différentes couleurs et épaisseurs de pinceau, la sauvegarde et le chargement des dessins, etc.
+
+    Évènements : Vous pouvez implémenter des évènements pour détecter les actions de l'utilisateur, tels que les clics sur les boutons, les balayages de l'écran, les rotations, etc. Vous pouvez également gérer les évènements pour répondre en conséquence, par exemple, afficher des messages d'erreur, lancer des actions, etc.
+
+    Interface tactile : L'application doit être sensible au toucher de l'écran et permettre aux utilisateurs d'interagir avec l'interface utilisateur en utilisant des gestes tactiles courants, tels que les balayages, les pincements, les rotations, etc.
+
+    Cycle de vie : Vous pouvez gérer le cycle de vie de l'application, c'est-à-dire les différents états dans lesquels l'application peut se trouver, tels que l'état de création, de mise en pause, de reprise, de destruction, etc. Vous pouvez sauvegarder l'état de l'application et restaurer les données lorsqu'elle est redémarrée.
+
+    Préférences : Vous pouvez permettre aux utilisateurs de personnaliser les préférences de l'application, telles que la couleur du fond, la taille du pinceau, etc. Vous pouvez utiliser les API de gestion des préférences d'Android pour stocker et récupérer ces préférences.
+
+    Base de données : Vous pouvez implémenter une base de données pour stocker et gérer les dessins créés par les utilisateurs. Vous pouvez utiliser SQLite, qui est une base de données embarquée dans Android, pour créer, lire, mettre à jour et supprimer les données des dessins.

@@ -1,0 +1,19 @@
+Nom du projet : "MyNotes"
+
+Description du projet : "MyNotes" est une application qui vous permet de créer et de sauvegarder des notes. L'application utilise les fonctionnalités du cycle de vie et des préférences pour assurer une expérience utilisateur transparente.
+
+Fonctionnalités du projet :
+
+    Cycle de vie : L'application doit gérer correctement le cycle de vie de l'activité, en particulier la rotation de l'écran. Les données doivent être correctement sauvegardées et restaurées lors des transitions entre les états de l'activité.
+
+    Préférences : L'application doit permettre à l'utilisateur de personnaliser l'apparence de l'application en utilisant des préférences. L'utilisateur peut modifier la taille de la police, la couleur de fond, la police utilisée, etc.
+
+    Ajouter une note : L'utilisateur peut ajouter une nouvelle note en utilisant un formulaire simple. Chaque note doit avoir un titre et un contenu.
+
+    Modifier une note : L'utilisateur peut modifier une note existante en cliquant sur la note dans la liste des notes. Le formulaire de modification doit être pré-rempli avec les informations de la note sélectionnée.
+
+    Supprimer une note : L'utilisateur peut supprimer une note en cliquant sur le bouton de suppression à côté de la note dans la liste des notes.
+
+    Afficher une note : L'utilisateur peut voir le détail d'une note en cliquant sur la note dans la liste des notes.
+
+    Liste des notes : L'utilisateur peut voir toutes les notes qu'il a créées dans une liste. La liste des notes doit être triée par ordre chronologique, de la plus récente à la plus ancienne.

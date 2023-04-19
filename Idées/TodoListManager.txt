@@ -1,0 +1,17 @@
+Nom de l'application : "ToDoList Manager"
+
+Description de l'application : "ToDoList Manager" est une application de gestion de tâches qui permet aux utilisateurs de créer, organiser et gérer leurs listes de tâches. L'application offre une interface utilisateur conviviale avec des fonctionnalités de mise en page, d'évènements, d'interface tactile, de cycle de vie, de préférences et de gestion de base de données.
+
+Fonctionnalités de l'application :
+
+    Mise en page : L'application offre une mise en page ergonomique pour organiser et gérer les listes de tâches. Vous pouvez utiliser des éléments d'interface utilisateur, tels que des listes déroulantes, des boutons, des champs de texte, etc., pour créer une interface utilisateur agréable et intuitive.
+
+    Évènements : Vous pouvez implémenter des évènements pour détecter les actions de l'utilisateur, tels que la création, la mise à jour et la suppression des tâches. Vous pouvez également gérer les évènements pour répondre en conséquence, par exemple, mettre à jour l'affichage des tâches, afficher des messages d'erreur, etc.
+
+    Interface tactile : L'application doit être sensible au toucher de l'écran et permettre aux utilisateurs d'interagir avec l'interface utilisateur en utilisant des gestes tactiles courants, tels que les balayages, les pincements, etc. Vous pouvez utiliser ces gestes pour ajouter, éditer ou supprimer des tâches.
+
+    Cycle de vie : Vous pouvez gérer le cycle de vie de l'application, c'est-à-dire les différents états dans lesquels l'application peut se trouver, tels que l'état de création, de mise en pause, de reprise, de destruction, etc. Vous pouvez sauvegarder l'état de l'application et restaurer les données lorsqu'elle est redémarrée.
+
+    Préférences : Vous pouvez permettre aux utilisateurs de personnaliser les préférences de l'application, telles que l'ordre d'affichage des tâches, la couleur de fond, etc. Vous pouvez utiliser les API de gestion des préférences d'Android pour stocker et récupérer ces préférences.
+
+    Base de données : Vous pouvez implémenter une base de données pour stocker et gérer les tâches créées par les utilisateurs. Vous pouvez utiliser SQLite ou une autre base de données pour créer, lire, mettre à jour et supprimer les données des tâches.
