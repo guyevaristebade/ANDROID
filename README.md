@@ -1,2 +1,2 @@
 # ANDROID
-Monté en compétence en android
+Monté en compétence dans le developpement d'application android
