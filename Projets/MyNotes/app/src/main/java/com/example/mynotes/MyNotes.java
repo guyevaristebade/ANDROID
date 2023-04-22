@@ -6,6 +6,11 @@ public class MyNotes {
     private String title;
     private String content;
 
+    public final static String TABLE_NAME = "mynotes";
+    public final static String COLUMN_TITLE = "title";
+    public final static String COLUMN_NOTE_CONTENT = "notecontent";
+
+
     public MyNotes(int id, String title, String content) {
         this.id = id;
         this.title = title;

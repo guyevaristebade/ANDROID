@@ -28,8 +28,17 @@
         android:textColor="@color/black"
         android:layout_below="@id/title_note"
         android:gravity="top"
+        android:layout_above="@+id/save"
         />
 
-
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textSize="15pt"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            />
 
 </RelativeLayout>

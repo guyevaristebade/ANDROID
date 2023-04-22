@@ -19,18 +19,5 @@ public class NotesAdapter extends ArrayAdapter<MyNotes> {
     }
 
 
-    /**
-     *
-     *
-    @NonNull
-    @Override
-    public View getView(int position , @NonNull View convertView , @NonNull ViewGroup parent){
-        return initView(position,convertView,parent);
-    }
-
-
-    /*public  View initView(int position , View convertView, ViewGroup parent){
-
-    }*/
 
 }
