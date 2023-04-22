@@ -2,6 +2,7 @@ package com.example.mynotes;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
@@ -32,7 +33,21 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 
     public boolean addNote(MyNotes mynotes){
-        return  true;
+        /**
+         * getWritableDatabase() renvoie une référence à une base de données en mode écriture.
+         * Si la base de données n'existe pas encore, getWritableDatabase() créera la base de données en appelant la méthode onCreate() de la classe SQLiteOpenHelper
+         * */
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues tuple = new ContentValues();
+
+        tuple.put(MyNotes.COLUMN_TITLE,mynotes.getTitle());
+        tuple.put(MyNotes.COLUMN_NOTE_CONTENT,mynotes.getContent());
+
+        long result = db.insert(MyNotes.TABLE_NAME, null , tuple);
+        db.close();
+
+        return result != -1;
     }
 
     public boolean deleteNote(MyNotes mynotes){
@@ -45,5 +60,13 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     public MyNotes getMyNotes(){
         return mynotes;
+    }
+
+
+    public Cursor getAllNotes(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM "+ MyNotes.TABLE_NAME;
+        Cursor cursor = db.rawQuery(query,null);
+        return cursor;
     }
 }

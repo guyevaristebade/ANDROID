@@ -46,5 +46,9 @@ public class MyNotes {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String toString(){
+        return this.title;
+    }
 }
 

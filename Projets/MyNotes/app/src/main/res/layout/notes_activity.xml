@@ -16,14 +16,12 @@
         android:textSize="30pt"
         android:textColor="@color/black"
         android:gravity="top"
-        android:text="sdsf-"
         />
 
     <EditText
         android:id="@+id/note_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="MyNotes"
         android:textSize="10pt"
         android:textColor="@color/black"
         android:layout_below="@id/title_note"
