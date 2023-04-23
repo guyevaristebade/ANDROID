@@ -3,33 +3,42 @@ package com.example.mynotes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DatabaseManager dbManager ;
     private ArrayList<MyNotes> arrayNotes;
     private ListView notesList;
-    private ArrayAdapter adapter;
     private TextView title;
     private TextView countNotes;
     private EditText search;
     private Button addnote_btn;
     private Button searh_btn;
+
+    private final static int[] VUES = { R.id.title_tview , R.id.content_tview };
+    private final static String[] CHAMPS = { MyNotes.COLUMN_TITLE , MyNotes.COLUMN_NOTE_CONTENT };
+    private SimpleCursorAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.dbManager = new DatabaseManager(this);
+        /**
+         * init variable
+         * */
 
         this.arrayNotes = new ArrayList<>();
         this.notesList = findViewById(R.id.notesList);
@@ -42,29 +51,48 @@ public class MainActivity extends AppCompatActivity {
         this.searh_btn = findViewById(R.id.addnote);
 
 
+        /**
+         * add Listener
+         * */
         this.addnote_btn.setOnClickListener(new MyOnclickListener(this));
         //this.notesList.setOnItemClickListener();
-        displayAllNotes();
+
+
+        /**
+         * ListView Configuration
+         * */
+        this.adapter = new SimpleCursorAdapter(this, R.layout.row_layout, null, MainActivity.CHAMPS, MainActivity.VUES, 0);
+        this.adapter.setViewBinder(new NoteViewBinder());
+        this.notesList.setAdapter(this.adapter);
+
+        /**
+         * display Notes in ListView
+         * */
+        this.displayAllNotes();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     public void displayAllNotes(){
-        Cursor cursor = this.dbManager.getAllNotes();
 
-        if(cursor.getCount() != 0){
+        DatabaseManager dbManager = new DatabaseManager(this);
+        SQLiteDatabase dataBase = dbManager.getReadableDatabase();
+
+        Cursor cursor = dataBase.query(MyNotes.TABLE_NAME,null,null,null,null,null,null);
+
+        if(cursor != null){
+
             this.countNotes.setText(String.valueOf(cursor.getCount()));
-            while(cursor.moveToNext()){
-                String title = cursor.getString(1);
-                String content = cursor.getString(2);
+            this.adapter.swapCursor(cursor);
 
-                MyNotes note = new MyNotes(title,content);
-                arrayNotes.add(note);
-            }
-            adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,arrayNotes);
-            notesList.setAdapter(adapter);
         }else {
-            this.countNotes.setText("0 data found");
+
+            this.countNotes.setText("No data found");
             Toast.makeText(this,"No Notes Found " , Toast.LENGTH_LONG).show();
+
         }
     }
 }

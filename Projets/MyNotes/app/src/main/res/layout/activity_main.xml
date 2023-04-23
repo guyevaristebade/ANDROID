@@ -45,7 +45,7 @@
         android:layout_below="@id/search"
         android:layout_above="@id/footer"
         android:dividerHeight="20dp"
-        android:divider="@color/white"
+        android:divider="@color/transparent"
 
         />
 

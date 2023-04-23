@@ -51,6 +51,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 
     public boolean deleteNote(MyNotes mynotes){
+        SQLiteDatabase db = this.getWritableDatabase();
         return  true;
     }
 
@@ -63,10 +64,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 
 
-    public Cursor getAllNotes(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM "+ MyNotes.TABLE_NAME;
-        Cursor cursor = db.rawQuery(query,null);
+    /*public Cursor getAllNotes(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(MyNotes.TABLE_NAME,null,null,null,null,null,null);
         return cursor;
-    }
+    }*/
 }

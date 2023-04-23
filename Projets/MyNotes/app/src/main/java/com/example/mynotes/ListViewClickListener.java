@@ -33,22 +33,5 @@ public class ListViewClickListener implements AdapterView.OnItemClickListener {
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Cursor cursor = this.dbManager.getAllNotes();
-
-        if(cursor.getCount() != 0){
-            this.countNotes.setText(String.valueOf(cursor.getCount()));
-            while(cursor.moveToNext()){
-                arrayNotes.add(cursor.getString(1));
-            }
-
-            adapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1,arrayNotes);
-            notesList.setAdapter(adapter);
-
-        }else {
-
-            this.countNotes.setText("0 data found");
-            Toast.makeText(context,"No Notes Found " , Toast.LENGTH_LONG).show();
-
-        }
     }
 }
