@@ -50,13 +50,23 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean deleteNote(MyNotes mynotes){
+    public boolean deleteNoteByTitle(String title){
         SQLiteDatabase db = this.getWritableDatabase();
-        return  true;
+        long result = db.delete(MyNotes.TABLE_NAME,"title=?",new String[]{ title });
+        db.close();
+        return  result != -1;
     }
 
-    public boolean UpdateNote(MyNotes mynotes){
-        return  true;
+    public boolean UpdateNoteById(String id,String newTitle , String newContent){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(MyNotes.COLUMN_TITLE,newTitle);
+        cv.put(MyNotes.COLUMN_NOTE_CONTENT,newContent);
+
+        long result = db.update(MyNotes.TABLE_NAME,cv,BaseColumns._ID+" = ?", new String[]{ id });
+        db.close();
+        return  result != -1;
     }
 
     public MyNotes getMyNotes(){
@@ -68,5 +78,13 @@ public class DatabaseManager extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM "+MyNotes.TABLE_NAME,null);
         return cursor;
+    }
+
+
+    public int getIdOfNoteByTitle(String title){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+MyNotes.TABLE_NAME + " WHERE "+ MyNotes.COLUMN_TITLE+"= ?",new String[]{ title });
+        cursor.moveToFirst();
+        return cursor.getInt(0);
     }
 }
