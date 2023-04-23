@@ -64,9 +64,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 
 
-    /*public Cursor getAllNotes(){
+    public Cursor getAllNotes(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(MyNotes.TABLE_NAME,null,null,null,null,null,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM "+MyNotes.TABLE_NAME,null);
         return cursor;
-    }*/
+    }
 }

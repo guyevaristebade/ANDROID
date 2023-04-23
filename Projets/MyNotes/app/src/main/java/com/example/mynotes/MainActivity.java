@@ -74,14 +74,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        this.displayAllNotes();
     }
 
     public void displayAllNotes(){
 
         DatabaseManager dbManager = new DatabaseManager(this);
-        SQLiteDatabase dataBase = dbManager.getReadableDatabase();
-
-        Cursor cursor = dataBase.query(MyNotes.TABLE_NAME,null,null,null,null,null,null);
+        Cursor cursor = dbManager.getAllNotes();
 
         if(cursor != null){
 
