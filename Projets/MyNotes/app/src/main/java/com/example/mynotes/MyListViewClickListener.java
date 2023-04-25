@@ -20,6 +20,7 @@ public class MyListViewClickListener implements AdapterView.OnItemClickListener 
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
         int itemPosition = i;
         TextView title = view.findViewById(R.id.title_tview);
         TextView content = view.findViewById(R.id.content_tview);

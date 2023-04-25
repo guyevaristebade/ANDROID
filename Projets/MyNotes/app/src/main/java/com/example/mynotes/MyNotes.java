@@ -5,17 +5,12 @@ public class MyNotes {
     private int id;
     private String title;
     private String content;
+    private String date;
 
     public final static String TABLE_NAME = "mynotes";
     public final static String COLUMN_TITLE = "title";
     public final static String COLUMN_NOTE_CONTENT = "notecontent";
 
-
-    public MyNotes(int id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-    }
 
     public MyNotes(String title, String content) {
         this.title = title;
@@ -42,6 +37,11 @@ public class MyNotes {
     public String getContent() {
         return content;
     }
+
+    public String getDate() {
+        return date;
+    }
+
 
     public void setContent(String content) {
         this.content = content;

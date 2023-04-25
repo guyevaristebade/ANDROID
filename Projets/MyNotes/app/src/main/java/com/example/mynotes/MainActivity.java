@@ -2,6 +2,8 @@ package com.example.mynotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,6 +19,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Observable;
+import java.util.Observer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private final static int[] VUES = { R.id.title_tview , R.id.content_tview };
     private final static String[] CHAMPS = { MyNotes.COLUMN_TITLE , MyNotes.COLUMN_NOTE_CONTENT };
     private SimpleCursorAdapter adapter;
-
+    private DatabaseManager dbManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         this.search = findViewById(R.id.search);
         this.addnote_btn = findViewById(R.id.addnote);
         this.searh_btn = findViewById(R.id.addnote);
-
+        this.dbManager = new DatabaseManager(this);
 
         /**
          * add Listener
@@ -66,11 +70,9 @@ public class MainActivity extends AppCompatActivity {
         this.adapter.setViewBinder(new NoteViewBinder());
         this.notesList.setAdapter(this.adapter);
 
-        /**
-         * display Notes in ListView
-         * */
-        this.displayAllNotes();
+        this.notesList.setOnItemLongClickListener(new MyLongClickItemListener(this,this.adapter,this.countNotes));
     }
+
 
 
     @Override
@@ -78,17 +80,18 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         this.displayAllNotes();
+
     }
 
     public void displayAllNotes(){
 
-        DatabaseManager dbManager = new DatabaseManager(this);
-        Cursor cursor = dbManager.getAllNotes();
+
+        Cursor cursor = this.dbManager.getAllNotes();
 
         if(cursor != null){
 
             this.countNotes.setText(String.valueOf(cursor.getCount()));
-            this.adapter.swapCursor(cursor);
+            this.adapter.changeCursor(cursor); //permet d'appliquer les modifications en cas d'update d'une note
 
         }else {
 
@@ -96,5 +99,30 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"No Notes Found " , Toast.LENGTH_LONG).show();
 
         }
+    }
+
+
+    public void openPopup(String title){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(" Delete Box ");
+        builder.setMessage(" Can you delete this Note ? ");
+        builder.setCancelable(false);
+        DatabaseManager db = new DatabaseManager(this);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
 }

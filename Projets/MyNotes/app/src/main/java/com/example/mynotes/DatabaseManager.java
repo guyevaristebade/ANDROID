@@ -20,10 +20,11 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + MyNotes.TABLE_NAME + "(" +
-                BaseColumns._ID + " integer PRIMARY KEY AUTOINCREMENT, " +
-                MyNotes.COLUMN_TITLE + " text NOT NULL, " +
-                MyNotes.COLUMN_NOTE_CONTENT + " text NOT NULL);");
+
+            db.execSQL("CREATE TABLE " + MyNotes.TABLE_NAME + "(" +
+                    BaseColumns._ID + " integer PRIMARY KEY AUTOINCREMENT, " +
+                    MyNotes.COLUMN_TITLE + " text NOT NULL, " +
+                    MyNotes.COLUMN_NOTE_CONTENT + " text NOT NULL);");
     }
 
     @Override
@@ -50,21 +51,14 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean deleteNoteByTitle(String title){
-        SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(MyNotes.TABLE_NAME,"title=?",new String[]{ title });
-        db.close();
-        return  result != -1;
-    }
-
-    public boolean UpdateNoteById(String id,String newTitle , String newContent){
+    public boolean UpdateNoteById(int id,String newTitle , String newContent){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(MyNotes.COLUMN_TITLE,newTitle);
         cv.put(MyNotes.COLUMN_NOTE_CONTENT,newContent);
 
-        long result = db.update(MyNotes.TABLE_NAME,cv,BaseColumns._ID+" = ?", new String[]{ id });
+        long result = db.update(MyNotes.TABLE_NAME,cv,BaseColumns._ID+" = ?", new String[]{ String.valueOf(id) });
         db.close();
         return  result != -1;
     }
@@ -87,4 +81,19 @@ public class DatabaseManager extends SQLiteOpenHelper {
         cursor.moveToFirst();
         return cursor.getInt(0);
     }
+
+    public boolean deleteAllNotes(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(MyNotes.TABLE_NAME,null,null);
+        db.close();
+        return  result != -1;
+    }
+
+
+    public boolean deleteNoteByTitle(String title_text){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(MyNotes.TABLE_NAME,MyNotes.COLUMN_TITLE + "  = ?",new String[]{ title_text });
+        return true;
+    }
+
 }

@@ -8,7 +8,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class NoteActivity extends AppCompatActivity {
 
@@ -23,6 +25,7 @@ public class NoteActivity extends AppCompatActivity {
         this.save_btn = findViewById(R.id.save);
         this.noteTitle = findViewById(R.id.title_note);
         this.noteContent = findViewById(R.id.note_content);
+
 
         /**
          * add Events

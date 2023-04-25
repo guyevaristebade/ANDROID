@@ -27,6 +27,9 @@ public class NoteViewBinder implements SimpleCursorAdapter.ViewBinder {
 
             return true;
 
+        }else if(view.getId() == R.id.date_tview){
+            String content = cursor.getString(columnIndex);
+            ((TextView) view).setText(content);
         }
 
         return false;
