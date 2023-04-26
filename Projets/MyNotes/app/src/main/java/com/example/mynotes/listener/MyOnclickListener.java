@@ -1,8 +1,10 @@
-package com.example.mynotes;
+package com.example.mynotes.listener;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+
+import com.example.mynotes.activities.NoteActivity;
 
 public class MyOnclickListener implements View.OnClickListener {
 
@@ -13,7 +15,7 @@ public class MyOnclickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent i = new Intent(this.context,NoteActivity.class);
+        Intent i = new Intent(this.context, NoteActivity.class);
         this.context.startActivity(i);
 
     }

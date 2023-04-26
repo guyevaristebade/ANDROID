@@ -1,4 +1,4 @@
-package com.example.mynotes;
+package com.example.mynotes.listener;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.mynotes.database.DatabaseManager;
+import com.example.mynotes.R;
+import com.example.mynotes.activities.EditActivity;
 
 public class MyListViewClickListener implements AdapterView.OnItemClickListener {
 
@@ -29,7 +32,7 @@ public class MyListViewClickListener implements AdapterView.OnItemClickListener 
 
         DatabaseManager db = new DatabaseManager(context);
 
-        Intent intent = new Intent(context,EditActivity.class);
+        Intent intent = new Intent(context, EditActivity.class);
         intent.putExtra("title_note_edit",title_text);
         intent.putExtra("content_note_edit",content_text);
         intent.putExtra("id",db.getIdOfNoteByTitle(title_text));

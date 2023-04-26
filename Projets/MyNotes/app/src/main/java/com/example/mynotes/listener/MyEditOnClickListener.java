@@ -1,11 +1,13 @@
-package com.example.mynotes;
+package com.example.mynotes.listener;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.mynotes.database.DatabaseManager;
+import com.example.mynotes.activities.MainActivity;
 
 public class MyEditOnClickListener implements View.OnClickListener {
 
@@ -35,7 +37,7 @@ public class MyEditOnClickListener implements View.OnClickListener {
                 if(!title.equals("") && !content.equals("") && dbManager.UpdateNoteById(this.id,title_Text,content_Text)){
 
                         Toast.makeText(context, "Data Updated "+ dbManager.UpdateNoteById(this.id,title_Text,content_Text), Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(context,MainActivity.class);
+                        Intent i = new Intent(context, MainActivity.class);
                         context.startActivity(i);
                 }else{
 

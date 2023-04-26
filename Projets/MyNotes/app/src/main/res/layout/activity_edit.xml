@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditActivity"
+    tools:context=".activities.EditActivity"
     android:padding="10dp"
+    android:id="@+id/edit_activity"
     >
 
     <EditText
@@ -17,6 +18,7 @@
         android:textColor="@color/black"
         android:gravity="top"
         android:hint="Title"
+        android:singleLine="true"
         />
 
     <EditText

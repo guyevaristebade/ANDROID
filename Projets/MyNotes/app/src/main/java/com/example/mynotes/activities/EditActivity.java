@@ -1,4 +1,4 @@
-package com.example.mynotes;
+package com.example.mynotes.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.example.mynotes.listener.MyEditOnClickListener;
+import com.example.mynotes.R;
 
 
 public class EditActivity extends AppCompatActivity {

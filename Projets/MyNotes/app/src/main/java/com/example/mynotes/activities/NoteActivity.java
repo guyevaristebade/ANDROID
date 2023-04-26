@@ -1,16 +1,13 @@
-package com.example.mynotes;
+package com.example.mynotes.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import com.example.mynotes.R;
+import com.example.mynotes.listener.MyOnClickNoteListenner;
 
 public class NoteActivity extends AppCompatActivity {
 
@@ -31,7 +28,7 @@ public class NoteActivity extends AppCompatActivity {
          * add Events
          * */
 
-        save_btn.setOnClickListener(new onClickNoteListenner(this,this.noteTitle, this.noteContent));
+        save_btn.setOnClickListener(new MyOnClickNoteListenner(this,this.noteTitle, this.noteContent));
 
     }
 }

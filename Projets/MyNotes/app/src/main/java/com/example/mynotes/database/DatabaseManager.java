@@ -1,4 +1,4 @@
-package com.example.mynotes;
+package com.example.mynotes.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,9 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
-import android.provider.ContactsContract;
 
-import androidx.annotation.Nullable;
+import com.example.mynotes.MyNotes;
 
 public class DatabaseManager extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "mynotes.db";
@@ -94,6 +93,13 @@ public class DatabaseManager extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(MyNotes.TABLE_NAME,MyNotes.COLUMN_TITLE + "  = ?",new String[]{ title_text });
         return true;
+    }
+
+
+    public Cursor SearchNote(String data){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MyNotes.TABLE_NAME + " WHERE "+ MyNotes.COLUMN_TITLE + " LIKE  ?",new String[]{ "%" + data + "%" });
+        return cursor;
     }
 
 }

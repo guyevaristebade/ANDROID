@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyNotes</string>
+    <string name="delete_note_box">Delete Note Box</string>
+    <string name="do_you_want_to_delete_this_note">Do you want to delete this note ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

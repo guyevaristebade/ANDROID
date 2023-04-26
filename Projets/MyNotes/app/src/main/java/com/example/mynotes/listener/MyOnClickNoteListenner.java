@@ -1,4 +1,4 @@
-package com.example.mynotes;
+package com.example.mynotes.listener;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,14 +6,18 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class onClickNoteListenner implements View.OnClickListener {
+import com.example.mynotes.database.DatabaseManager;
+import com.example.mynotes.MyNotes;
+import com.example.mynotes.activities.MainActivity;
+
+public class MyOnClickNoteListenner implements View.OnClickListener {
 
     EditText edit1;
     EditText edit2;
     Context context;
 
 
-    public onClickNoteListenner(Context context , EditText edit1, EditText edit2) {
+    public MyOnClickNoteListenner(Context context , EditText edit1, EditText edit2) {
 
         this.context = context;
         this.edit1 = edit1;
@@ -33,7 +37,7 @@ public class onClickNoteListenner implements View.OnClickListener {
         if(!title.equals("") && !content.equals("") && dbManager.addNote(note)){
 
             Toast.makeText(context, "data added in database", Toast.LENGTH_LONG).show();
-            Intent i = new Intent(context,MainActivity.class);
+            Intent i = new Intent(context, MainActivity.class);
             context.startActivity(i);
         }else{
 

@@ -5,7 +5,10 @@
     <item
         android:id="@+id/apparence"
         android:orderInCategory="1"
-        android:title="Apparence" />
+        android:title="Settings" />
 
-
+    <item
+        android:id="@+id/clear_cache"
+        android:orderInCategory="1"
+        android:title="clear all notes" />
 </menu>

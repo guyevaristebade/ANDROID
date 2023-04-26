@@ -1,15 +1,15 @@
-package com.example.mynotes;
+package com.example.mynotes.listener;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.mynotes.database.DatabaseManager;
+import com.example.mynotes.R;
 
 public class MyLongClickItemListener implements AdapterView.OnItemLongClickListener {
 
