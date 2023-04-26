@@ -102,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
 
                 this.countNotes.setText(String.valueOf(cursor.getCount()));
                 this.adapter.changeCursor(cursor); //permet d'appliquer les modifications en cas d'update d'une note
-                //this.adapter.notifyDataSetChanged();
-            }
+                this.adapter.notifyDataSetChanged();
 
+            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+
         super.onResume();
 
         this.displayAllNotes();

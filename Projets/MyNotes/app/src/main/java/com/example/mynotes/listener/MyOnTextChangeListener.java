@@ -41,10 +41,6 @@ public class MyOnTextChangeListener implements TextWatcher {
             this.adapter.changeCursor(cursor);
             this.adapter.notifyDataSetChanged();
 
-        }else{
-
-            Toast.makeText(context, "not data found", Toast.LENGTH_SHORT).show();
-
         }
 
     }
