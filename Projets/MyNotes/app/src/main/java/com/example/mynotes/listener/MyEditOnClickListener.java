@@ -34,11 +34,12 @@ public class MyEditOnClickListener implements View.OnClickListener {
                 String title_Text = this.title.getText().toString();
                 String content_Text = this.content.getText().toString();
 
-                if(!title.equals("") && !content.equals("") && dbManager.UpdateNoteById(this.id,title_Text,content_Text)){
+                if(!title_Text.isEmpty() && !content_Text.isEmpty() && dbManager.UpdateNoteById(this.id,title_Text,content_Text)){
 
                         Toast.makeText(context, "Data Updated "+ dbManager.UpdateNoteById(this.id,title_Text,content_Text), Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(context, MainActivity.class);
                         context.startActivity(i);
+
                 }else{
 
                         Toast.makeText(context, "Data not updated", Toast.LENGTH_SHORT).show();

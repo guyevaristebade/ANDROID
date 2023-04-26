@@ -19,16 +19,16 @@ public class MyOnTextChangeListener implements TextWatcher {
     private EditText search_input;
 
     public MyOnTextChangeListener(Context context, DatabaseManager dbManager, SimpleCursorAdapter adapter,EditText search_input) {
+
         this.context = context;
         this.dbManager = dbManager;
         this.adapter = adapter;
         this.search_input = search_input;
+
     }
 
     @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-    }
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
     @Override
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -42,11 +42,8 @@ public class MyOnTextChangeListener implements TextWatcher {
             this.adapter.notifyDataSetChanged();
 
         }
-
     }
 
     @Override
-    public void afterTextChanged(Editable editable) {
-
-    }
+    public void afterTextChanged(Editable editable) {}
 }

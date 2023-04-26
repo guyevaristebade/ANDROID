@@ -121,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
         this.displayAllNotes();
 
         SharedPreferences share = PreferenceManager.getDefaultSharedPreferences(this);
-
         TextView title_main = findViewById(R.id.title);
 
         if (share.getBoolean("dark_mode", false)) {
@@ -129,12 +128,14 @@ public class MainActivity extends AppCompatActivity {
             this.main.setBackgroundColor(Color.BLACK);
             title_main.setTextColor(Color.WHITE);
             this.countNotes.setTextColor(Color.WHITE);
+            this.search.setTextColor(Color.WHITE);
 
         }else{
 
             this.main.setBackgroundColor(Color.WHITE);
             title_main.setTextColor(Color.BLACK);
             this.countNotes.setTextColor(Color.BLACK);
+            this.search.setTextColor(Color.BLACK);
 
         }
     }

@@ -34,11 +34,12 @@ public class MyOnClickNoteListenner implements View.OnClickListener {
 
         DatabaseManager dbManager = new DatabaseManager(context);
 
-        if(!title.equals("") && !content.equals("") && dbManager.addNote(note)){
+        if(!title.isEmpty() && !content.isEmpty() && dbManager.addNote(note)){
 
             Toast.makeText(context, "data added in database", Toast.LENGTH_LONG).show();
             Intent i = new Intent(context, MainActivity.class);
             context.startActivity(i);
+
         }else{
 
             Toast.makeText(this.context, "Is empty ",Toast.LENGTH_LONG).show();

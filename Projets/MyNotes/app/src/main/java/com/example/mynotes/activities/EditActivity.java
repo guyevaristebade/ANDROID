@@ -31,9 +31,6 @@ public class EditActivity extends AppCompatActivity {
         this.content.setText(i.getStringExtra("content_note_edit"));
         this.id = i.getIntExtra("id",-1);
 
-
-
-
         this.updatebtn.setOnClickListener(new MyEditOnClickListener( this, this.id , this.title , this.content ));
     }
 }
