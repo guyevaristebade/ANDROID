@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView title;
     private TextView countNotes;
     private EditText search;
-    private Button search_btn;
     private Button addnote_btn;
     private DatabaseManager dbManager;
     private RelativeLayout main;
@@ -51,14 +50,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /**
-         * init variable
+         * Init variable
          * */
-
         this.notesList = findViewById(R.id.notesList);
         this.title = findViewById(R.id.title);
         this.countNotes = findViewById(R.id.countNotes);
         this.search = findViewById(R.id.search);
-        this.search_btn = findViewById(R.id.search_btn);
         this.addnote_btn = findViewById(R.id.addnote);
         this.dbManager = new DatabaseManager(this);
         this.main = findViewById(R.id.mainactivity);
@@ -68,18 +65,13 @@ public class MainActivity extends AppCompatActivity {
         this.notesList.setAdapter(this.adapter);
 
         /**
-         * add Listener
+         * Add Listener
          * */
         this.addnote_btn.setOnClickListener(new MyOnclickListener(this));
         this.notesList.setOnItemClickListener(new MyListViewClickListener(this,this.notesList));
         this.search.addTextChangedListener(new MyOnTextChangeListener(this,this.dbManager,this.adapter,this.search));
-
-        /**
-         * ListView Configuration
-         * */
-
-
         this.notesList.setOnItemLongClickListener(new MyLongClickItemListener(this,this.adapter,this.countNotes));
+
     }
 
     @Override

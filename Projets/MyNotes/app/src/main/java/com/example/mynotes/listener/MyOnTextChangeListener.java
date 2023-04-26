@@ -32,16 +32,19 @@ public class MyOnTextChangeListener implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        //Toast.makeText(context, ""+charSequence, Toast.LENGTH_SHORT).show();
-        //Log.i("debug", ""+ charSequence);
+
         String text = this.search_input.getText().toString();
         Cursor cursor = this.dbManager.SearchNote(text);
 
         if(cursor != null){
-            this.adapter.changeCursor(cursor); //permet d'appliquer les modifications en cas d'update d'une note
+
+            this.adapter.changeCursor(cursor);
             this.adapter.notifyDataSetChanged();
+
         }else{
+
             Toast.makeText(context, "not data found", Toast.LENGTH_SHORT).show();
+
         }
 
     }
