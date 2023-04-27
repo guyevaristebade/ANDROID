@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -112,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onResume() {
 
@@ -156,5 +156,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"No Notes Found " , Toast.LENGTH_LONG).show();
 
         }
+    }
+
+
+    public void OpenPopup(){
     }
 }
