@@ -8,12 +8,16 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -72,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         this.notesList.setOnItemClickListener(new MyListViewClickListener(this,this.notesList));
         this.search.addTextChangedListener(new MyOnTextChangeListener(this,this.dbManager,this.adapter,this.search));
         this.notesList.setOnItemLongClickListener(new MyLongClickItemListener(this,this.adapter,this.countNotes));
-
     }
 
     @Override
@@ -123,12 +126,33 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences share = PreferenceManager.getDefaultSharedPreferences(this);
         TextView title_main = findViewById(R.id.title);
 
+        //editActiity
+        RelativeLayout editActivity = findViewById(R.id.edit_activity);
+        EditText title_edit = findViewById(R.id.title_edit);
+        EditText note_edit = findViewById(R.id.note_edit);
+
+        //note Activity
+        RelativeLayout  note_activity = findViewById(R.id.note_activity);
+        EditText title_note = findViewById(R.id.title_note);
+        EditText note_content = findViewById(R.id.note_content);
+
         if (share.getBoolean("dark_mode", false)) {
 
             this.main.setBackgroundColor(Color.BLACK);
             title_main.setTextColor(Color.WHITE);
             this.countNotes.setTextColor(Color.WHITE);
             this.search.setTextColor(Color.WHITE);
+
+            //edit activity
+            editActivity.setBackgroundColor(Color.BLACK);
+            title_edit.setTextColor(Color.WHITE);
+            note_edit.setTextColor(Color.WHITE);
+
+            //note Activity
+            note_activity.setBackgroundColor(Color.BLACK);
+            title_note.setTextColor(Color.WHITE);
+            note_content.setTextColor(Color.WHITE);
+
 
         }else{
 
@@ -137,6 +161,16 @@ public class MainActivity extends AppCompatActivity {
             this.countNotes.setTextColor(Color.BLACK);
             this.search.setTextColor(Color.BLACK);
 
+            //edit activity
+            editActivity.setBackgroundColor(Color.WHITE);
+            title_edit.setTextColor(Color.BLACK);
+            note_edit.setTextColor(Color.WHITE);
+
+
+            //note Activity
+            note_activity.setBackgroundColor(Color.WHITE);
+            title_note.setTextColor(Color.BLACK);
+            note_content.setTextColor(Color.BLACK);
         }
     }
 
@@ -156,9 +190,5 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"No Notes Found " , Toast.LENGTH_LONG).show();
 
         }
-    }
-
-
-    public void OpenPopup(){
     }
 }
