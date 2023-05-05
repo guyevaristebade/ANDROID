@@ -9,5 +9,7 @@ Monté en compétence dans le developpement d'application android
 ### http://www.iut-fbleau.fr/sitebp/dev45/donnees/ (archive couleur) 
 
 # fonctionalités 
+### créer une note
+![image](https://user-images.githubusercontent.com/102631607/236459933-a67e0ae7-272e-40fa-8319-9b1b1dd5c9a6.png)
 
-![image](https://user-images.githubusercontent.com/102631607/236459004-7c2aeafd-0884-4b04-bd6c-6ae994eb3ea4.png)
+
