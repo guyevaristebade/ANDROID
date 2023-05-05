@@ -126,15 +126,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences share = PreferenceManager.getDefaultSharedPreferences(this);
         TextView title_main = findViewById(R.id.title);
 
-        //editActiity
-        RelativeLayout editActivity = findViewById(R.id.edit_activity);
-        EditText title_edit = findViewById(R.id.title_edit);
-        EditText note_edit = findViewById(R.id.note_edit);
-
-        //note Activity
-        RelativeLayout  note_activity = findViewById(R.id.note_activity);
-        EditText title_note = findViewById(R.id.title_note);
-        EditText note_content = findViewById(R.id.note_content);
 
         if (share.getBoolean("dark_mode", false)) {
 
@@ -143,15 +134,7 @@ public class MainActivity extends AppCompatActivity {
             this.countNotes.setTextColor(Color.WHITE);
             this.search.setTextColor(Color.WHITE);
 
-            //edit activity
-            editActivity.setBackgroundColor(Color.BLACK);
-            title_edit.setTextColor(Color.WHITE);
-            note_edit.setTextColor(Color.WHITE);
 
-            //note Activity
-            note_activity.setBackgroundColor(Color.BLACK);
-            title_note.setTextColor(Color.WHITE);
-            note_content.setTextColor(Color.WHITE);
 
 
         }else{
@@ -160,17 +143,7 @@ public class MainActivity extends AppCompatActivity {
             title_main.setTextColor(Color.BLACK);
             this.countNotes.setTextColor(Color.BLACK);
             this.search.setTextColor(Color.BLACK);
-
-            //edit activity
-            editActivity.setBackgroundColor(Color.WHITE);
-            title_edit.setTextColor(Color.BLACK);
-            note_edit.setTextColor(Color.WHITE);
-
-
-            //note Activity
-            note_activity.setBackgroundColor(Color.WHITE);
-            title_note.setTextColor(Color.BLACK);
-            note_content.setTextColor(Color.BLACK);
+            
         }
     }
 
